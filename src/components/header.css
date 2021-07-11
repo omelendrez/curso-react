@@ -1,0 +1,9 @@
+.titulo {
+  font-size: 50px;
+  color: rgb(160, 44, 64);
+}
+
+.activo {
+  background-color: rgba(204, 11, 162, 0.733);
+  color: white;
+}
