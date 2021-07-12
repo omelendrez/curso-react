@@ -5,10 +5,10 @@ import Titulo from "./Titulo";
 import Fecha from "./Fecha";
 const Header = () => {
   return (
-    <div className="titulo">
+    <div className="headers">
       <Logo />
-      <Titulo title="Tarea" />
-      <Fecha date="11/07/2021" />
+      <Titulo title="Pagina Principal" />
+      <Fecha />
     </div>
   );
 };

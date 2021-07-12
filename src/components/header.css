@@ -1,9 +1,9 @@
-.titulo {
-  font-size: 50px;
-  color: rgb(160, 44, 64);
-}
-
-.activo {
-  background-color: rgba(204, 11, 162, 0.733);
+.headers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.4em;
+  padding: 0 15px;
   color: white;
+  background-image: url(https://www.bates.edu/wordpress/files/2016/07/texture-03.jpg);
 }
