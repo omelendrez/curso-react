@@ -3,11 +3,11 @@ import "./header.css";
 import Logo from "./Logo";
 import Titulo from "./Titulo";
 import Fecha from "./Fecha";
-const Header = () => {
+const Header = (props) => {
   return (
     <div className="headers">
       <Logo />
-      <Titulo title="Pagina Principal" />
+      <Titulo title={props.title} />
       <Fecha />
     </div>
   );

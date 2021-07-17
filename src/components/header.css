@@ -3,7 +3,10 @@
   justify-content: space-between;
   align-items: center;
   font-size: 1.4em;
-  padding: 0 15px;
+  padding: 10px;
   color: white;
-  background-image: url(https://www.bates.edu/wordpress/files/2016/07/texture-03.jpg);
+  background-image: url(https://c.pxhere.com/images/39/a4/a55f513952c39fee8fd188008721-1443659.jpg!d);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
 }
