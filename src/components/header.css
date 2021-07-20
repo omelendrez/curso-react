@@ -1,7 +1,4 @@
 .headers {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   font-size: 1.4em;
   padding: 10px;
   color: white;
@@ -9,4 +6,24 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
+}
+
+.headers div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headers nav ul {
+  display: flex;
+}
+
+.headers nav ul li {
+  list-style: none;
+}
+
+.headers nav ul li a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
 }
