@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
-import Contacto from "./pages/Contacto";
+import Todos from "./pages/Todos";
 
 function App() {
   return (
@@ -12,8 +12,8 @@ function App() {
             <Home />
           </Route>
 
-          <Route path="/contacto">
-            <Contacto />
+          <Route path="/Todos">
+            <Todos />
           </Route>
         </Switch>
       </Router>

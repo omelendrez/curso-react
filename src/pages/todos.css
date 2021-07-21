@@ -1,0 +1,14 @@
+.todos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.todos .todo {
+  font-size: 3em;
+}
+
+.todos .todo.completed {
+  text-decoration: line-through;
+}
