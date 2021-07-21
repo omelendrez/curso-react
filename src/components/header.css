@@ -8,6 +8,11 @@
   background-position: bottom;
 }
 
+nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .headers div {
   display: flex;
   justify-content: space-between;
