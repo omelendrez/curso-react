@@ -1,3 +1,5 @@
+import React from "react";
+
 const Todo = (props) => {
   const { todo } = props;
   const { name, completed } = todo;

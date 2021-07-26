@@ -27,8 +27,8 @@ const Todos = () => {
     <>
       <Header title="Todos" />
       <div className="todos">
-        {todos.map((todo) => (
-          <Todo todo={todo} color="rojo" />
+        {todos.map((todo, index) => (
+          <Todo key={index} todo={todo} />
         ))}
       </div>
     </>
