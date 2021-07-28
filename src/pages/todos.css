@@ -1,3 +1,17 @@
+.btn {
+  font-size: 2em;
+  background-color: #1d002c;
+  color: white;
+  padding: 6px 30px;
+  width: fit-content;
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  background-color: gray;
+}
+
 .todos {
   display: flex;
   flex-direction: column;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Headers";
 import Todo from "./Todo";
 import "./todos.css";
@@ -32,6 +32,12 @@ const defaultTodos = [
 
 const Todos = () => {
   const [todos, setTodos] = useState(defaultTodos);
+  const [completedList, setCompletedList] = useState([]);
+
+  useEffect(() => {
+    const completed = todos.filter((todo) => todo.completed === true);
+    setCompletedList(completed);
+  }, [todos]);
 
   const handleClick = (item) => {
     const newItem = { ...item, completed: !item.completed };
@@ -44,9 +50,20 @@ const Todos = () => {
     setTodos(newTodos);
   };
 
+  const handleClickButton = (e) => {
+    console.log(completedList);
+  };
+
   return (
     <>
       <Header title="Todos" />
+      <button
+        className="btn"
+        disabled={completedList.length === 0}
+        onClick={handleClickButton}
+      >
+        Limpiar
+      </button>
       <div className="todos">
         {todos.map((todo, index) => (
           <Todo key={index} todo={todo} onClick={handleClick} />
