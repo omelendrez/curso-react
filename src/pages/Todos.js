@@ -3,36 +3,41 @@ import Header from "../components/Headers";
 import Todo from "./Todo";
 import "./todos.css";
 
-const defaultTodos = [
-  {
-    id: 0,
-    name: "Hacer las compras",
-  },
-  {
-    id: 1,
-    name: "Pagar alquiler",
-  },
-  {
-    id: 2,
-    name: "Lavar la ropa",
-  },
-  {
-    id: 3,
-    name: "Ir al gimnasio",
-  },
-  {
-    id: 4,
-    name: "Pagar alquiler",
-  },
-  {
-    id: 5,
-    name: "Pagar alquiler",
-  },
-];
+const defaultTodos = [];
+
+const CleanButton = (props) => {
+  const { disabled, onClick } = props;
+  return (
+    <button className="btn" disabled={disabled} onClick={onClick}>
+      Limpiar
+    </button>
+  );
+};
+
+const TodosList = (props) => {
+  const { todos, onClick } = props;
+  return (
+    <div className="todos">
+      {todos.map((todo, index) => (
+        <Todo key={index} todo={todo} onClick={onClick} />
+      ))}
+    </div>
+  );
+};
+
+const InputText = (props) => {
+  const { onSubmit, onChange } = props;
+  return (
+    <form onSubmit={onSubmit}>
+      <input className="todo-text" type="text" onChange={onChange} />
+    </form>
+  );
+};
 
 const Todos = () => {
   const [todos, setTodos] = useState(defaultTodos);
   const [completedList, setCompletedList] = useState([]);
+  const [text, setText] = useState("");
 
   useEffect(() => {
     const completed = todos.filter((todo) => todo.completed === true);
@@ -51,24 +56,36 @@ const Todos = () => {
   };
 
   const handleClickButton = (e) => {
-    console.log(completedList);
+    const newList = todos.filter((todo) => !todo.completed);
+    setTodos(newList);
+  };
+
+  const addTodo = (e) => {
+    e.preventDefault();
+    const newTodo = {
+      id: todos.length,
+      name: text,
+    };
+    const newList = [...todos, newTodo];
+    setTodos(newList);
+  };
+
+  const textChange = (e) => {
+    setText(e.target.value);
   };
 
   return (
     <>
       <Header title="Todos" />
-      <button
-        className="btn"
+
+      <InputText onSubmit={addTodo} onChange={textChange} />
+
+      <CleanButton
         disabled={completedList.length === 0}
         onClick={handleClickButton}
-      >
-        Limpiar
-      </button>
-      <div className="todos">
-        {todos.map((todo, index) => (
-          <Todo key={index} todo={todo} onClick={handleClick} />
-        ))}
-      </div>
+      />
+
+      <TodosList todos={todos} onClick={handleClick} />
     </>
   );
 };

@@ -28,3 +28,13 @@
   text-decoration: line-through;
   color: red;
 }
+
+form {
+  margin: 10px auto;
+}
+
+.todo-text {
+  font-size: 2em;
+  padding: 6px 30px;
+  outline: none;
+}
