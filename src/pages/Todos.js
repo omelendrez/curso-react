@@ -1,38 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Headers";
-import Todo from "./Todo";
+import InputText from "./InputText";
+import CleanButton from "./CleanButton";
+import TodosList from "./TodosList";
 import "./todos.css";
 
 const defaultTodos = [];
-
-const CleanButton = (props) => {
-  const { disabled, onClick } = props;
-  return (
-    <button className="btn" disabled={disabled} onClick={onClick}>
-      Limpiar
-    </button>
-  );
-};
-
-const TodosList = (props) => {
-  const { todos, onClick } = props;
-  return (
-    <div className="todos">
-      {todos.map((todo, index) => (
-        <Todo key={index} todo={todo} onClick={onClick} />
-      ))}
-    </div>
-  );
-};
-
-const InputText = (props) => {
-  const { onSubmit, onChange } = props;
-  return (
-    <form onSubmit={onSubmit}>
-      <input className="todo-text" type="text" onChange={onChange} />
-    </form>
-  );
-};
 
 const Todos = () => {
   const [todos, setTodos] = useState(defaultTodos);
