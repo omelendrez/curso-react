@@ -12,8 +12,12 @@ function App() {
             <Home />
           </Route>
 
-          <Route path="/Todos">
+          <Route path="/todos">
             <Todos />
+          </Route>
+
+          <Route>
+            <div>Página inexistente</div>
           </Route>
         </Switch>
       </Router>
