@@ -12,12 +12,22 @@ const Todos = () => {
   const [completedList, setCompletedList] = useState([]);
   const [text, setText] = useState("");
 
+  const obtenerDatos = () => {
+    const data = localStorage.getItem("todos") || "[]";
+    setTodos(JSON.parse(data));
+  };
+
+  useEffect(() => {
+    obtenerDatos();
+  }, []);
+
   useEffect(() => {
     const completed = todos.filter((todo) => todo.completed === true);
     setCompletedList(completed);
+    localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
-  const handleClick = (item) => {
+  const handleCompleted = (item) => {
     const newItem = { ...item, completed: !item.completed };
     const newTodos = todos.map((todoItem) => {
       if (newItem.id === todoItem.id) {
@@ -28,7 +38,7 @@ const Todos = () => {
     setTodos(newTodos);
   };
 
-  const handleClickButton = (e) => {
+  const handleLimpiar = (e) => {
     const newList = todos.filter((todo) => !todo.completed);
     setTodos(newList);
   };
@@ -41,6 +51,7 @@ const Todos = () => {
     };
     const newList = [...todos, newTodo];
     setTodos(newList);
+    setText("");
   };
 
   const textChange = (e) => {
@@ -51,14 +62,14 @@ const Todos = () => {
     <>
       <Header title="Todos" />
 
-      <InputText onSubmit={addTodo} onChange={textChange} />
+      <InputText onSubmit={addTodo} onChange={textChange} value={text} />
 
       <CleanButton
         disabled={completedList.length === 0}
-        onClick={handleClickButton}
+        onClick={handleLimpiar}
       />
 
-      <TodosList todos={todos} onClick={handleClick} />
+      <TodosList todos={todos} onClick={handleCompleted} />
     </>
   );
 };
