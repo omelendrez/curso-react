@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Header from "../components/Headers";
-import InputText from "./InputText";
-import CleanButton from "./CleanButton";
+import Header from "../../components/Headers";
+import InputText from "../../components/InputText";
+import Button from "../../components/Button";
 import TodosList from "./TodosList";
 import "./todos.css";
 
@@ -64,9 +64,10 @@ const Todos = () => {
 
       <InputText onSubmit={addTodo} onChange={textChange} value={text} />
 
-      <CleanButton
+      <Button
         disabled={completedList.length === 0}
         onClick={handleLimpiar}
+        label="Limpiar"
       />
 
       <TodosList todos={todos} onClick={handleCompleted} />

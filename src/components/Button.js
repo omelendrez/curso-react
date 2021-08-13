@@ -1,12 +1,12 @@
 import React from "react";
 
-const CleanButton = (props) => {
-  const { disabled, onClick } = props;
+const Button = (props) => {
+  const { disabled, onClick, label } = props;
   return (
     <button className="btn" disabled={disabled} onClick={onClick}>
-      Limpiar
+      {label}
     </button>
   );
 };
 
-export default CleanButton;
+export default Button;
