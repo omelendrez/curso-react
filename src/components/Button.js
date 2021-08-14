@@ -1,4 +1,5 @@
 import React from "react";
+import "./button.css";
 
 const Button = (props) => {
   const { disabled, onClick, label } = props;
