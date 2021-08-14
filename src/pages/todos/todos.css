@@ -1,15 +1,24 @@
 .btn {
+  --hue: 200;
+  --saturation: 100%;
+  --lightness: 20%;
   font-size: 2em;
-  background-color: #1d002c;
+  background-color: hsl(var(--hue), var(--saturation), var(--lightness));
   color: white;
   padding: 6px 30px;
   width: fit-content;
   margin: 10px auto;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:not(:disabled):hover {
+  --lightness: 30%;
 }
 
 .btn:disabled {
-  background-color: gray;
+  --saturation: 0%;
+  --lightness: 50%;
 }
 
 .todos {
@@ -22,6 +31,7 @@
 .todos .todo {
   font-size: 3em;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .todos .todo.completed {
