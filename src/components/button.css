@@ -1,7 +1,7 @@
 .btn {
-  --hue: 200;
+  --hue: 277;
   --saturation: 100%;
-  --lightness: 20%;
+  --lightness: 7%;
   font-size: 2em;
   background-color: hsl(var(--hue), var(--saturation), var(--lightness));
   color: white;
