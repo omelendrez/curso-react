@@ -1,5 +1,6 @@
 import React from "react";
 import Contacto from "./Contacto";
+import "./contactos.css";
 
 const ContactosList = (props) => {
   const { contactos } = props;
@@ -17,7 +18,7 @@ const ContactosList = (props) => {
         </thead>
         <tbody>
           {contactos.map((contacto) => (
-            <Contacto contacto={contacto} />
+            <Contacto key={contacto.name} contacto={contacto} />
           ))}
         </tbody>
       </table>

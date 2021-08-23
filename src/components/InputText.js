@@ -1,7 +1,7 @@
 import React from "react";
 
 const InputText = (props) => {
-  const { onSubmit, onChange, value } = props;
+  const { onSubmit, onChange, value, placeholder, id } = props;
   return (
     <form onSubmit={onSubmit}>
       <input
@@ -9,6 +9,8 @@ const InputText = (props) => {
         type="text"
         onChange={onChange}
         value={value}
+        placeholder={placeholder}
+        id={id}
       />
     </form>
   );

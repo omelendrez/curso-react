@@ -62,7 +62,12 @@ const Todos = () => {
     <>
       <Header title="Todos" />
 
-      <InputText onSubmit={addTodo} onChange={textChange} value={text} />
+      <InputText
+        onSubmit={addTodo}
+        onChange={textChange}
+        value={text}
+        placeholder="Ingrese tarea"
+      />
 
       <Button
         disabled={completedList.length === 0}

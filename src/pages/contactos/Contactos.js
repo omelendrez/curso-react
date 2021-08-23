@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import Header from "../../components/Headers";
 import Button from "../../components/Button";
 import ContactosList from "./ContactosList";
-
+import "./contactos.css";
 const contactos = [
   {
     name: "Omar",
@@ -28,11 +29,21 @@ const contactos = [
 ];
 
 const Contactos = () => {
+  const [redirect, setRedirect] = useState(false);
+
+  const onClick = () => {
+    setRedirect(true);
+  };
+
+  if (redirect) {
+    return <Redirect to="/contacto/formulario" />;
+  }
+
   return (
     <>
       <Header title="Contactos" />
 
-      <Button label="Agregar contacto" />
+      <Button label="Agregar contacto" onClick={onClick} />
 
       <ContactosList contactos={contactos} />
     </>

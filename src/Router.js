@@ -2,6 +2,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Todos from "./pages/todos/Todos";
 import Contactos from "./pages/contactos/Contactos";
+import ContactoForm from "./pages/contactos/ContactoForm";
 
 const Router = () => {
   return (
@@ -17,6 +18,10 @@ const Router = () => {
 
         <Route path="/contactos">
           <Contactos />
+        </Route>
+
+        <Route path="/contacto/formulario">
+          <ContactoForm />
         </Route>
 
         <Route>
