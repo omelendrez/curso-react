@@ -1,18 +1,17 @@
 import React from "react";
 
 const InputText = (props) => {
-  const { onSubmit, onChange, value, placeholder, id } = props;
+  const { onChange, value, placeholder, id, type } = props;
   return (
-    <form onSubmit={onSubmit}>
-      <input
-        className="todo-text"
-        type="text"
-        onChange={onChange}
-        value={value}
-        placeholder={placeholder}
-        id={id}
-      />
-    </form>
+    <input
+      className="todo-text"
+      type={type}
+      onChange={onChange}
+      value={value}
+      placeholder={placeholder}
+      id={id}
+      required
+    />
   );
 };
 

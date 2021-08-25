@@ -4,6 +4,23 @@
   align-items: center;
   font-size: 2em;
 }
+
+.contactos .table {
+  border-collapse: collapse;
+}
+
+.contactos .table thead tr th {
+  background-color: #dadada;
+  padding: 10px;
+}
+
 .contactos .table tbody tr td {
   padding: 10px;
+}
+
+.contacto-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 60px;
 }
