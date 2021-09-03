@@ -8,6 +8,7 @@ import "./contactos.css";
 const Contactos = () => {
   const [redirect, setRedirect] = useState(false);
   const [contactos, setContactos] = useState([]);
+  const [contacto, setContacto] = useState({});
 
   const obtenerLista = () => {
     const data = localStorage.getItem("contactos") || "[]";
@@ -15,9 +16,17 @@ const Contactos = () => {
   };
 
   const handleDelete = (index) => {
-    const data = contactos.filter((contacto, idx) => idx !== index);
-    localStorage.setItem("contactos", JSON.stringify(data));
-    setContactos(data);
+    if (window.confirm("Seguro quiere eliminar el registro?")) {
+      const data = contactos.filter((contacto, idx) => idx !== index);
+      localStorage.setItem("contactos", JSON.stringify(data));
+      setContactos(data);
+    }
+  };
+
+  const handleEdit = (index) => {
+    const data = contactos.filter((contacto, idx) => idx === index)[0];
+    setContacto(data);
+    setRedirect(true);
   };
 
   useEffect(() => {
@@ -29,7 +38,9 @@ const Contactos = () => {
   };
 
   if (redirect) {
-    return <Redirect to="/contacto/formulario" />;
+    return (
+      <Redirect to={{ pathname: "/contacto/formulario", state: contacto }} />
+    );
   }
 
   return (
@@ -38,7 +49,11 @@ const Contactos = () => {
 
       <Button label="Agregar contacto" onClick={onClick} />
 
-      <ContactosList contactos={contactos} onDelete={handleDelete} />
+      <ContactosList
+        contactos={contactos}
+        onDelete={handleDelete}
+        onEdit={handleEdit}
+      />
     </>
   );
 };

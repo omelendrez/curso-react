@@ -3,7 +3,7 @@ import Button from "../../components/Button";
 import "./contacto.css";
 
 const Contacto = (props) => {
-  const { contacto, onDelete, index } = props;
+  const { contacto, onDelete, index, onEdit } = props;
   return (
     <tr>
       <td>{contacto.name}</td>
@@ -13,6 +13,7 @@ const Contacto = (props) => {
       <td>{contacto.birthday}</td>
       <td>
         <Button label="Eliminar contacto" onClick={() => onDelete(index)} />
+        <Button label="Modificar contacto" onClick={() => onEdit(index)} />
       </td>
     </tr>
   );

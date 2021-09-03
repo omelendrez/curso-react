@@ -3,7 +3,7 @@ import Contacto from "./Contacto";
 import "./contactos.css";
 
 const ContactosList = (props) => {
-  const { contactos, onDelete } = props;
+  const { contactos, onDelete, onEdit } = props;
   return (
     <div className="contactos">
       <table className="table">
@@ -23,6 +23,7 @@ const ContactosList = (props) => {
               key={index}
               contacto={contacto}
               onDelete={onDelete}
+              onEdit={onEdit}
               index={index}
             />
           ))}

@@ -20,9 +20,10 @@ const Router = () => {
           <Contactos />
         </Route>
 
-        <Route path="/contacto/formulario">
-          <ContactoForm />
-        </Route>
+        <Route
+          path="/contacto/formulario"
+          render={(props) => <ContactoForm {...props} />}
+        />
 
         <Route>
           <div>Página inexistente</div>
