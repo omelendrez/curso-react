@@ -1,35 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import Header from "../../components/Headers";
 import Button from "../../components/Button";
 import ContactosList from "./ContactosList";
 import "./contactos.css";
-const contactos = [
-  {
-    name: "Omar",
-    phone: "2915754922",
-    email: "omar.melendrez@gmail.com",
-    age: 61,
-    birthday: "22/01/1960",
-  },
-  {
-    name: "Jose",
-    phone: "2915754923",
-    email: "jose@gmail.com",
-    age: 62,
-    birthday: "22/01/1961",
-  },
-  {
-    name: "Carla",
-    phone: "2915754924",
-    email: "carla@gmail.com",
-    age: 63,
-    birthday: "22/01/1962",
-  },
-];
 
 const Contactos = () => {
   const [redirect, setRedirect] = useState(false);
+  const [contactos, setContactos] = useState([]);
+
+  const obtenerLista = () => {
+    const data = localStorage.getItem("contactos") || "[]";
+    setContactos(JSON.parse(data));
+  };
+
+  const handleDelete = (index) => {
+    const data = contactos.filter((contacto, idx) => idx !== index);
+    localStorage.setItem("contactos", JSON.stringify(data));
+    setContactos(data);
+  };
+
+  useEffect(() => {
+    obtenerLista();
+  }, []);
 
   const onClick = () => {
     setRedirect(true);
@@ -45,7 +38,7 @@ const Contactos = () => {
 
       <Button label="Agregar contacto" onClick={onClick} />
 
-      <ContactosList contactos={contactos} />
+      <ContactosList contactos={contactos} onDelete={handleDelete} />
     </>
   );
 };

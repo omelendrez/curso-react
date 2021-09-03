@@ -23,7 +23,10 @@ const ContactoForm = (props) => {
 
   const saveData = (e) => {
     e.preventDefault();
-    console.log(form);
+    const data = JSON.parse(localStorage.getItem("contactos") || "[]");
+    data.push(form);
+    localStorage.setItem("contactos", JSON.stringify(data));
+    setRedirect(true);
   };
 
   const cancelForm = (e) => {

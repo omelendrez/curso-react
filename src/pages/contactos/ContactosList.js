@@ -3,7 +3,7 @@ import Contacto from "./Contacto";
 import "./contactos.css";
 
 const ContactosList = (props) => {
-  const { contactos } = props;
+  const { contactos, onDelete } = props;
   return (
     <div className="contactos">
       <table className="table">
@@ -14,11 +14,17 @@ const ContactosList = (props) => {
             <th>Email</th>
             <th>Edad</th>
             <th>Cumpleaños</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-          {contactos.map((contacto) => (
-            <Contacto key={contacto.name} contacto={contacto} />
+          {contactos.map((contacto, index) => (
+            <Contacto
+              key={index}
+              contacto={contacto}
+              onDelete={onDelete}
+              index={index}
+            />
           ))}
         </tbody>
       </table>
