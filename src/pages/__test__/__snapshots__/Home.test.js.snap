@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Login page It should match snapshot 1`] = `
+Array [
+  <div
+    className="headers"
+  >
+    <div>
+      <div
+        className="logo"
+      >
+        <img
+          alt="Logo"
+          src="https://cdn.dribbble.com/users/31864/screenshots/3666062/attachments/819877/2.jpg?compress=1&resize=800x600"
+        />
+      </div>
+      <div
+        className="titulo"
+      >
+        Home page
+      </div>
+      <div>
+        9/4/2021
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <a
+            href="/"
+            onClick={[Function]}
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a
+            href="/todos"
+            onClick={[Function]}
+          >
+            Todos
+          </a>
+        </li>
+        <li>
+          <a
+            href="/contactos"
+            onClick={[Function]}
+          >
+            Contactos
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>,
+  <div
+    className="container"
+  />,
+]
+`;
