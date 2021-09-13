@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 import Header from "../../components/Headers";
 import Button from "../../components/Button";
 import InputText from "../../components/InputText";
 
 const ContactoForm = (props) => {
   const initForm = {
+    id: uuidv4(),
     name: "",
     phone: "",
     email: "",
@@ -14,7 +16,7 @@ const ContactoForm = (props) => {
   };
 
   useEffect(() => {
-    if (props.location.state) {
+    if (props.location.state.name) {
       setForm(props.location.state);
     }
   }, [props]);
@@ -27,11 +29,17 @@ const ContactoForm = (props) => {
     setForm(newForm);
   };
 
-  const saveData = (e) => {
+  const saveContacto = (e) => {
     e.preventDefault();
-    const data = JSON.parse(localStorage.getItem("contactos") || "[]");
-    data.push(form);
-    localStorage.setItem("contactos", JSON.stringify(data));
+    let contactos = JSON.parse(localStorage.getItem("contactos") || "[]");
+    if (contactos.find((contacto) => contacto.id === form.id)) {
+      contactos = contactos.map((contacto) =>
+        contacto.id === form.id ? form : contacto
+      );
+    } else {
+      contactos.push(form);
+    }
+    localStorage.setItem("contactos", JSON.stringify(contactos));
     setRedirect(true);
   };
 
@@ -47,7 +55,7 @@ const ContactoForm = (props) => {
   return (
     <>
       <Header title="Nuevo contacto" />
-      <form className="contacto-form" onSubmit={saveData}>
+      <form className="contacto-form" onSubmit={saveContacto}>
         <InputText
           id="name"
           type="text"
@@ -84,7 +92,7 @@ const ContactoForm = (props) => {
           value={form.birthday}
         />
 
-        <Button label="Guardar datos" onClick={saveData} type="submit" />
+        <Button label="Guardar datos" onClick={saveContacto} type="submit" />
         <Button label="Volver" onClick={cancelForm} />
       </form>
     </>
