@@ -1,23 +1,8 @@
 .btn {
-  --hue: 277;
-  --saturation: 100%;
-  --lightness: 7%;
-  font-size: 2em;
-  background-color: hsl(var(--hue), var(--saturation), var(--lightness));
-  color: white;
-  padding: 6px 30px;
-  width: fit-content;
-  margin: 10px auto;
+  font-size: 3rem;
   cursor: pointer;
-  transition: 0.3s;
-  border: none;
-}
-
-.btn:not(:disabled):hover {
-  --lightness: 30%;
-}
-
-.btn:disabled {
-  --saturation: 0%;
-  --lightness: 80%;
+  border-radius: 50%;
+  border:none;
+  height: 100px;
+  width: 100px;
 }

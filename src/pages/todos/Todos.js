@@ -1,73 +1,74 @@
-import React, { useState, useEffect } from "react";
-import Header from "../../components/Headers";
-import InputText from "../../components/InputText";
-import Button from "../../components/Button";
-import TodosList from "./TodosList";
-import "./todos.css";
+import React, { useState, useEffect } from 'react'
+import Header from '../../components/Headers'
+import InputText from '../../components/InputText'
+import Button from '../../components/Button'
+import TodosList from './TodosList'
+import './todos.css'
 
-const defaultTodos = [];
+const defaultTodos = []
 
 const Todos = () => {
-  const [todos, setTodos] = useState(defaultTodos);
-  const [completedList, setCompletedList] = useState([]);
-  const [text, setText] = useState("");
+  const [todos, setTodos] = useState(defaultTodos)
+  const [completedList, setCompletedList] = useState([])
+  const [text, setText] = useState('')
 
   const obtenerDatos = () => {
-    const data = localStorage.getItem("todos") || "[]";
-    setTodos(JSON.parse(data));
-  };
+    const data = localStorage.getItem('todos') || '[]'
+    setTodos(JSON.parse(data))
+  }
 
   useEffect(() => {
-    obtenerDatos();
-  }, []);
+    obtenerDatos()
+  }, [])
 
   useEffect(() => {
-    const completed = todos.filter((todo) => todo.completed === true);
-    setCompletedList(completed);
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
+    const completed = todos.filter((todo) => todo.completed === true)
+    setCompletedList(completed)
+    localStorage.setItem('todos', JSON.stringify(todos))
+  }, [todos])
 
   const handleCompleted = (item) => {
-    const newItem = { ...item, completed: !item.completed };
+    const newItem = { ...item, completed: !item.completed }
     const newTodos = todos.map((todoItem) => {
       if (newItem.id === todoItem.id) {
-        todoItem = newItem;
+        todoItem = newItem
       }
-      return todoItem;
-    });
-    setTodos(newTodos);
-  };
+      return todoItem
+    })
+    setTodos(newTodos)
+  }
 
   const handleLimpiar = (e) => {
-    const newList = todos.filter((todo) => !todo.completed);
-    setTodos(newList);
-  };
+    const newList = todos.filter((todo) => !todo.completed)
+    setTodos(newList)
+  }
 
   const addTodo = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     const newTodo = {
       id: todos.length,
-      name: text,
-    };
-    const newList = [...todos, newTodo];
-    setTodos(newList);
-    setText("");
-  };
+      name: text
+    }
+    const newList = [...todos, newTodo]
+    setTodos(newList)
+    setText('')
+  }
 
   const textChange = (e) => {
-    setText(e.target.value);
-  };
+    setText(e.target.value)
+  }
 
   return (
     <>
       <Header title="Todos" />
 
-      <InputText
-        onSubmit={addTodo}
-        onChange={textChange}
-        value={text}
-        placeholder="Ingrese tarea"
-      />
+      <form onSubmit={addTodo}>
+        <InputText
+          onChange={textChange}
+          value={text}
+          placeholder="Ingrese tarea"
+        />
+      </form>
 
       <Button
         disabled={completedList.length === 0}
@@ -77,7 +78,7 @@ const Todos = () => {
 
       <TodosList todos={todos} onClick={handleCompleted} />
     </>
-  );
-};
+  )
+}
 
-export default Todos;
+export default Todos

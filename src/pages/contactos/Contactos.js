@@ -47,7 +47,7 @@ const Contactos = () => {
     <>
       <Header title="Contactos" />
 
-      <Button label="Agregar contacto" onClick={onClick} />
+      <Button label="plus" onClick={onClick} />
 
       <ContactosList
         contactos={contactos}

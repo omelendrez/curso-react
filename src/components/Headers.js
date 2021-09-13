@@ -9,6 +9,7 @@ const Header = (props) => {
     <div className="headers">
       <div>
         <Logo />
+        <i className="fa fa-trash fa-2x"></i>
         <Titulo title={props.title} />
         <Fecha />
       </div>

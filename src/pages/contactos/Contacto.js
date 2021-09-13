@@ -11,9 +11,9 @@ const Contacto = (props) => {
       <td>{contacto.email}</td>
       <td>{contacto.age}</td>
       <td>{contacto.birthday}</td>
-      <td>
-        <Button label="Eliminar contacto" onClick={() => onDelete(index)} />
-        <Button label="Modificar contacto" onClick={() => onEdit(index)} />
+      <td className="buttons">
+        <Button label="trash" onClick={() => onDelete(index)} />
+        <Button label="edit" onClick={() => onEdit(index)} />
       </td>
     </tr>
   );
