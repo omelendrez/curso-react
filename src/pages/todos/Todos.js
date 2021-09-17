@@ -73,7 +73,7 @@ const Todos = () => {
       <Button
         disabled={completedList.length === 0}
         onClick={handleLimpiar}
-        label="Limpiar"
+        label="fa fa-bitbucket"
       />
 
       <TodosList todos={todos} onClick={handleCompleted} />

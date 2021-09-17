@@ -12,8 +12,8 @@ const Contacto = (props) => {
       <td>{contacto.age}</td>
       <td>{contacto.birthday}</td>
       <td className="buttons">
-        <Button label="trash" onClick={() => onDelete(index)} />
-        <Button label="edit" onClick={() => onEdit(index)} />
+        <Button label="fa fa-trash" onClick={() => onDelete(index)} />
+        <Button label="fa fa-edit" onClick={() => onEdit(index)} />
       </td>
     </tr>
   );
