@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import Todos from "./pages/todos/Todos";
 import Contactos from "./pages/contactos/Contactos";
 import ContactoForm from "./pages/contactos/ContactoForm";
-
+import Compras from "./pages/compras/Compras";
 const Router = () => {
   return (
     <BrowserRouter>
@@ -18,6 +18,9 @@ const Router = () => {
 
         <Route path="/contactos">
           <Contactos />
+        </Route>
+        <Route path="/compras">
+          <Compras />
         </Route>
 
         <Route

@@ -1,0 +1,32 @@
+.compras {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+}
+
+.compras .table {
+  border-collapse: collapse;
+}
+
+.compras .table thead tr th {
+  background-color: #dadada;
+  padding: 10px;
+}
+
+.compras .table tbody tr td {
+  padding: 10px;
+}
+
+.compra-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
