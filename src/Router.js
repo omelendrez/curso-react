@@ -4,6 +4,7 @@ import Todos from "./pages/todos/Todos";
 import Contactos from "./pages/contactos/Contactos";
 import ContactoForm from "./pages/contactos/ContactoForm";
 import Compras from "./pages/compras/Compras";
+import CompraForm from "./pages/compras/CompraForm";
 const Router = () => {
   return (
     <BrowserRouter>
@@ -28,6 +29,10 @@ const Router = () => {
           render={(props) => <ContactoForm {...props} />}
         />
 
+        <Route
+          path="/compra/formulario"
+          render={(props) => <CompraForm {...props} />}
+        />
         <Route>
           <div>Página inexistente</div>
         </Route>

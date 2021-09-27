@@ -1,45 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Redirect } from "react-router-dom";
 import Header from "../../components/Headers";
 import Button from "../../components/Button";
 import ComprasList from "./ComprasList";
 import "./compras.css";
 
 const Compras = () => {
+  const [redirect, setRedirect] = useState(false);
+  const [compras, setCompras] = useState([]);
+  const [compra, setCompra] = useState({});
+
+  const obtenerLista = () => {
+    const data = localStorage.getItem("compras") || "[]";
+    setCompras(JSON.parse(data));
+  };
+
+  const handleDelete = (index) => {
+    if (window.confirm("Seguro quiere eliminar el registro?")) {
+      const data = compras.filter((compra, idx) => idx !== index);
+      localStorage.setItem("compras", JSON.stringify(data));
+      setCompras(data);
+    }
+  };
+
+  const handleEdit = (index) => {
+    const data = compras.filter((compra, idx) => idx === index)[0];
+    setCompra(data);
+    setRedirect(true);
+  };
+
+  useEffect(() => {
+    obtenerLista();
+  }, []);
+
   const onClick = (e) => {
-    console.log(e);
+    setRedirect(true);
   };
 
-  const compras = [
-    {
-      id: 1,
-      producto: "Harina",
-      cantidad: "1kg",
-      precio: "123,8",
-      frecuencia: "mensual",
-    },
-    {
-      id: 2,
-      producto: "Cerveza",
-      cantidad: "1l",
-      precio: "200",
-      frecuencia: "Semanal",
-    },
-    {
-      id: 3,
-      producto: "Fernet",
-      cantidad: "1l",
-      precio: "600",
-      frecuencia: "Semanal",
-    },
-  ];
-
-  const handleDelete = (e) => {
-    console.log(e);
-  };
-  const handleEdit = (e) => {
-    console.log(e);
-  };
-
+  if (redirect) {
+    return <Redirect to={{ pathname: "/compra/formulario", state: compra }} />;
+  }
   return (
     <>
       <Header title="Compras" />
