@@ -20,7 +20,7 @@ Array [
         Home page
       </div>
       <div>
-        9/4/2021
+        10/5/2021
       </div>
     </div>
     <nav>
@@ -47,6 +47,14 @@ Array [
             onClick={[Function]}
           >
             Contactos
+          </a>
+        </li>
+        <li>
+          <a
+            href="/compras"
+            onClick={[Function]}
+          >
+            Compras
           </a>
         </li>
       </ul>
