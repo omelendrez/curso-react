@@ -1,8 +1,7 @@
-import React from "react";
-import Button from "../../components/Button";
-
+import React from 'react'
+import Button from 'components/Button'
 const Compra = (props) => {
-  const { compra, onDelete, index, onEdit } = props;
+  const { compra, onDelete, index, onEdit } = props
   return (
     <tr>
       <td>{compra.producto}</td>
@@ -15,7 +14,7 @@ const Compra = (props) => {
         <Button label="fa fa-edit" onClick={() => onEdit(index)} />
       </td>
     </tr>
-  );
-};
+  )
+}
 
-export default Compra;
+export default Compra
