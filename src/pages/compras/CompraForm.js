@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import Header from "../../components/Headers";
 import Button from "../../components/Button";
 import InputText from "../../components/InputText";
+import { log } from 'utils/helpers';
 
 const CompraForm = (props) => {
   const initForm = {
@@ -40,6 +41,7 @@ const CompraForm = (props) => {
       compras.push(form);
     }
     localStorage.setItem("compras", JSON.stringify(compras));
+    log.success('Registro guardado')
     setRedirect(true);
   };
 

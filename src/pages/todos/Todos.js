@@ -3,6 +3,7 @@ import Header from '../../components/Headers'
 import InputText from '../../components/InputText'
 import Button from '../../components/Button'
 import TodosList from './TodosList'
+import { log } from 'utils/helpers'
 import './todos.css'
 
 const defaultTodos = []
@@ -15,6 +16,9 @@ const Todos = () => {
   const obtenerDatos = () => {
     const data = localStorage.getItem('todos') || '[]'
     setTodos(JSON.parse(data))
+    if(data.length === 0) {
+      log.warning('No hay registros')
+    }
   }
 
   useEffect(() => {

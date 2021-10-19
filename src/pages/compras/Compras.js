@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import Header from "../../components/Headers";
 import Button from "../../components/Button";
 import ComprasList from "./ComprasList";
+import { log } from 'utils/helpers';
 import "./compras.css";
 
 const Compras = () => {
@@ -12,7 +13,11 @@ const Compras = () => {
 
   const obtenerLista = () => {
     const data = localStorage.getItem("compras") || "[]";
-    setCompras(JSON.parse(data));
+    const compras = JSON.parse(data)
+    setCompras(compras);
+    if(!compras.length) {
+      log.warning('No hay compras guardadas')
+    }
   };
 
   const handleDelete = (index) => {
@@ -20,6 +25,7 @@ const Compras = () => {
       const data = compras.filter((compra, idx) => idx !== index);
       localStorage.setItem("compras", JSON.stringify(data));
       setCompras(data);
+      log.success('Registro eliminado')
     }
   };
 
